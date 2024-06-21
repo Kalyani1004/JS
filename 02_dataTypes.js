@@ -5,7 +5,7 @@ console.log(3+3)
 console.log("kalyani")
 
 let name ="Kalyani" //string
-let age =21 //int
+let age =21 //number
 let isloggedin = false //boolean
 
 
