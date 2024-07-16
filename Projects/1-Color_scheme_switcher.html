@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Scheme Switcher</title>
+    <style>
+        span {
+            display: block;
+        }
+        .button {
+            height: 100px;
+            width: 100px;
+            border: solid black 2px;
+            display: inline-block;
+        }
+        #grey {
+            background: grey;
+        }
+        #pink {
+            background: pink;
+        }
+        #black {
+            background: black;
+        }
+        #orange {
+            background: orange;
+        }
+        .project {
+            width: 1000px;
+            margin-top: 150px;
+            text-align: center;
+        }
+        body{
+            text-align: center;
+            margin-left: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="project">
+        <h1>Color Scheme Switcher</h1>
+        <span class="button" id="grey"></span>
+        <span class="button" id="pink"></span>
+        <span class="button" id="black"></span>
+        <span class="button" id="orange"></span>
+        <h2>Hey Cuties!!</h2>
+        <h3>Click on the color to see change in the background color</h3>
+    </div>
+    <script>
+        const buttons = document.querySelectorAll('.button');
+        const body = document.querySelector('body');
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                const color = event.target.id;
+                body.style.backgroundColor = color;
+                if(color == 'black' || color == 'grey'){
+                    document.querySelector('h2').style.color = 'white';
+                    document.querySelector('h1').style.color = 'white';
+                    document.querySelector('h3').style.color = 'white';
+                }
+                else{
+                    document.querySelector('h2').style.color = 'black';
+                    document.querySelector('h1').style.color = 'black';
+                    document.querySelector('h3').style.color = 'black';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

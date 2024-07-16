@@ -1,0 +1,9 @@
+Default js
+Javascript is synchronous, one code will execute then next code
+- single threaded, only one code can execute at a time
+
+Javascript is event driven, when an event occurs, a callback function is called
+
+blocking code vs non blocking code
+- blocking code will block the flow of program -read file sync
+- non blocking code will not block the flow of program, not block the execution of program , read file async

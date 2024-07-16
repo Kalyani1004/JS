@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        div{
+            text-align: center;
+        }
+        li{
+            list-style: none;
+        }
+        h3{
+            margin-top: 10%;
+            margin-left: 6%;
+        }
+        body{
+            background-color: rgb(126, 206, 92);
+        }
+        .button{
+            height: 200%;
+            width: 20%;
+            margin-left: 5%;
+            margin-top: 3%;
+            padding: 2%;
+            background-color: pink ;
+        }
+        #results{
+            display: block;
+            border: black;
+            border-style: dashed;
+            margin: 5%;
+            padding: 5%;
+            width: 30%;
+            margin-left: 32%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>BMI Calculator</h1>
+    <form>
+        <label for="height">Height (cm):</label>
+        <input type="number" name="height" id="height" required><br><br>
+        <label for="weight">Weight (kg):</label>
+        <input type="number" name="weight" id="weight" required><br><br>
+        <input type="submit" class="button" value="Calculate BMI">
+        <div id="results">
+            <h4>See your BMI</h4>
+        </div>
+        <h3>BMI guide</h3>
+        <ul>
+            <li>Underweight: less than 18.5</li>
+            <li>Normal: 18.5 - 24.9</li>
+            <li>Overweight: 25 - 29.9</li>
+        </ul>
+    </form>
+</div>
+</body>
+<script>
+  const form =  document.querySelector('form')
+  form.addEventListener('submit', function(e){
+    e.preventDefault()
+   const height= parseInt (document.querySelector('#height').value)
+   const weight= parseInt (document.querySelector('#weight').value)
+   const results= document.querySelector('#results')
+   if(height == ''|| height < 0 || isNaN(height)){
+    results.innerHTML = 'Please give a valid height';
+   }else if(weight == ''||weight < 0 || isNaN(weight)){
+    results.innerHTML = 'Please give a valid weight';
+   } else {
+  const bmi =  (weight / ((height)/100)**2).toFixed(2)
+    results.innerHTML = `<span>${bmi}</span>`;
+if(bmi < 18.5){
+    results.innerHTML += `<span>-Underweight</span>`;
+}
+else if(bmi>=18.5 && bmi <24.9){
+    results.innerHTML += `<span>-Normal</span>`;
+}
+else if(bmi >= 25){
+results.innerHTML += `<span>-Overweight</span>`;
+}
+   }
+})
+</script>
+</html>

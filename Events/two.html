@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h1>Async</h1>
+    <button id="start"> start</button>
+    <button id="stop"> stop</button>
+</body>
+<script>
+    const sayKalyani = function(){
+        console.log("Kalyani");
+    }
+    const change = function(){ document.querySelector('h1').innerHTML = 'Best of luck';}
+
+    const changetimeset = setTimeout((change),2000) //this functions get through browser not a part core javascript
+    //it is a part of browser
+    //setTimeout - used to execute a function or piece of code once after a specified delay (in milliseconds).
+    //setInterval - used to execute a function or piece of code repeatedly, with a fixed time delay between each call.
+    
+    //clearTimeout - used to cancel a timeout that was set with the setTimeout() method.
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changetimeset)
+        console.log("stopped");
+    })
+
+    document.querySelector('#start').addEventListener('click', function(){
+        setTimeout(change)
+        console.log("start");
+    })
+    </script>
+</html>
